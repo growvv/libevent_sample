@@ -37,3 +37,13 @@ libevent的基本使用样例
 缺点：回调函数（handle）不能阻塞；回调地狱；异步编程
 
 可以用协程，去掉回调函数，用同步的方式编程
+
+### 5. echo_back4
+
+分别使用了go的协程和uthread的协程
+
+没有回调函数了，用同步的方式编程
+
+每个请求分配给一个协程
+
+参考链接：https://www.cnblogs.com/nearmeng/p/4043548.html
