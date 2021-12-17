@@ -1,8 +1,5 @@
-LIBEVENT = ~/Libevent
-
-CFLAGS =	-I$(LIBEVENT)/include -Wall
-
-LIBS =		$(LIBEVENT)/.libs/libevent.a -lrt
+CFLAGS =	-g -Wall
+LIBS =		-levent -lpthread
 
 chat-server: chat-server.c
 	$(CC) $(CFLAGS) -o $@ $^ $(LIBS)

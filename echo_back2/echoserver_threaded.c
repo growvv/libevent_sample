@@ -157,7 +157,7 @@ void buffered_on_error(struct bufferevent *bev, short what, void *arg) {
 static void server_job_function(struct job *job) {
     client_t *client = (client_t *)job->user_data;
 
-    event_base_dispatch(client->evbase);
+    event_base_dispatch(client->evbase); // 等同于调用epoll_wait和它的回调函数
     closeAndFreeClient(client);
     free(job);
 }

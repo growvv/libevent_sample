@@ -154,7 +154,19 @@ void buffered_on_write(struct bufferevent *bev, void *arg) {
  * descriptor.
  */
 void buffered_on_error(struct bufferevent *bev, short what, void *arg) {
-    closeClient((client_t *)arg);
+    // closeClient((client_t *)arg);
+    	struct client *client = (struct client *)arg;
+
+	if (what & BEV_EVENT_EOF) {
+		/* Client disconnected, remove the read event and the
+		 * free the client structure. */
+		printf("Client %d disconnected.\n", client->fd);
+	}
+	else {
+		warn("Client %d socket error, disconnecting.\n", client->fd);
+	}
+
+    closeAndFreeClient(client);
 }
 
 

@@ -47,9 +47,9 @@ static void *worker_function(void *ptr) {
         if (job == NULL) continue;
 
         /* Execute the job. */
-	printf("begin execte the job...\n");
+	    printf("begin execte the job...\n");
         job->job_function(job);
-	printf("finished the job...\n");
+	    printf("finished the job...\n");
     }
 
     free(worker);

@@ -13,6 +13,7 @@
 #define LL_ADD(item, list) { \
     item->prev = NULL; \
     item->next = list; \
+    if(list != NULL) list->prev = item; \
     list = item; \
 }
 
